@@ -1,0 +1,33 @@
+class BirthdayDatabase:
+    def __init__(self):
+        self.db = {}
+
+    def add_person(self, name, dob):
+        self.db[name] = dob
+        print(f"{name}'s information added to the database.")
+
+    def get_dob(self, name):
+        dob = self.db.get(name)
+        if dob:
+            return dob
+        else:
+            return f"No information found for {name}."
+
+    def show_all(self):
+        print("Birthday Database:")
+        for name, dob in self.db.items():
+            print(f"Name: {name}, DOB: {dob}")
+
+# Create an instance of the BirthdayDatabase class
+birthday_db = BirthdayDatabase()
+
+# Adding persons to the database
+birthday_db.add_person("Alice", "1990-05-15")
+birthday_db.add_person("Bob", "1985-10-20")
+
+# Retrieve DOB for a person
+dob_alice = birthday_db.get_dob("Alice")
+print(dob_alice)
+
+# Display all entries in the database
+birthday_db.show_all()
