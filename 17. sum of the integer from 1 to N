@@ -1,0 +1,10 @@
+def sum_of_integers(n, N):
+    total_sum = 0
+    for i in range(n, N + 1):
+        total_sum += i
+    return total_sum
+
+n = 1  # Starting number
+N = 10  # Ending number
+result = sum_of_integers(n, N)
+print("Sum of integers from", n, "to", N, "is:", result)
