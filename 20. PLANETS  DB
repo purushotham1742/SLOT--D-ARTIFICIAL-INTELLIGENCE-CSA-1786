@@ -1,0 +1,19 @@
+% Facts: planet(Name, Diameter, DistanceFromSun)
+planet(earth, 12742, 149.6).
+planet(mars, 6779, 227.9).
+planet(venus, 12104, 108.2).
+
+% Rules: getPlanetInfo(Name, Diameter, DistanceFromSun)
+getPlanetInfo(Name, Diameter, DistanceFromSun) :-
+    planet(Name, Diameter, DistanceFromSun).
+
+% Rule: showAllPlanets
+showAllPlanets :-
+    write("Planets Database:"), nl,
+    planet(Name, Diameter, DistanceFromSun),
+    write("Name: "), write(Name), nl,
+    write("Diameter: "), write(Diameter), write(" km"), nl,
+    write("Distance from Sun: "), write(DistanceFromSun), write(" million km"), nl,
+    nl,
+    fail.
+showAllPlanets.
