@@ -1,0 +1,53 @@
+class Subject:
+    def __init__(self, code, name):
+        self.code = code
+        self.name = name
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Teacher(Person):
+    def __init__(self, name, age, subject):
+        super().__init__(name, age)
+        self.subject = subject
+
+class Student(Person):
+    def __init__(self, name, age, subjects=[]):
+        super().__init__(name, age)
+        self.subjects = subjects
+
+    def add_subject(self, subject):
+        self.subjects.append(subject)
+
+    def get_subjects(self):
+        return self.subjects
+
+# Create subjects
+math_subject = Subject("MATH101", "Mathematics")
+physics_subject = Subject("PHYS101", "Physics")
+
+# Create teachers
+math_teacher = Teacher("Alice", 35, math_subject)
+physics_teacher = Teacher("Bob", 40, physics_subject)
+
+# Create students
+student1 = Student("Charlie", 20, [math_subject])
+student2 = Student("David", 22, [physics_subject])
+
+# Add subjects for students
+student1.add_subject(physics_subject)
+student2.add_subject(math_subject)
+
+# Display information
+print(f"{math_teacher.name} teaches {math_teacher.subject.name}")
+print(f"{physics_teacher.name} teaches {physics_teacher.subject.name}")
+
+print(f"{student1.name} is enrolled in:")
+for subject in student1.get_subjects():
+    print(f"- {subject.name}")
+
+print(f"{student2.name} is enrolled in:")
+for subject in student2.get_subjects():
+    print(f"- {subject.name}")
